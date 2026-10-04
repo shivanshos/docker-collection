@@ -1,0 +1,21 @@
+services:
+  npm:
+    image: 'jc21/nginx-proxy-manager:latest'
+    container_name: shivanshos_npm
+    restart: unless-stopped
+    ports:
+      - '80:80'
+      - '81:81'
+      - '443:443'
+    volumes:
+      - ./data:/data
+      - ./letsencrypt:/etc/letsencrypt
+
+  qdrant:
+    image: qdrant/qdrant:latest
+    container_name: shivanshos_qdrant
+    restart: unless-stopped
+    ports:
+      - '6333:6333'
+    volumes:
+      - /opt/shivanshos/vector_db/qdrant_data:/qdrant/storage

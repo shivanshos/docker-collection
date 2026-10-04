@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+*.log
+gateway/data/
+gateway/letsencrypt/
+vector_db/qdrant_data/
+.env
